@@ -1,7 +1,6 @@
 #include "raylib.h"
 #include "raymath.h"
-
-#include <string>
+#include "Entity.h"
 
 int main(void)
 {
@@ -10,7 +9,8 @@ int main(void)
     const int screenWidth = 800;
     const int screenHeight = 450;
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "Scared Realm");
+    Entity ent({10, 20});
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
@@ -29,6 +29,7 @@ int main(void)
 
             ClearBackground(BLUE);
             DrawRectangle(0, 225, 800, 225, BROWN);
+            ent.draw();
             
         EndDrawing();
         //----------------------------------------------------------------------------------
