@@ -1,6 +1,8 @@
 #include "raylib.h"
 #include "raymath.h"
-#include "Entity.h"
+#include "Player.h"
+
+#include <vector>
 
 int main(void)
 {
@@ -10,7 +12,9 @@ int main(void)
     const int screenHeight = 450;
 
     InitWindow(screenWidth, screenHeight, "Scared Realm");
-    Entity ent({10, 20});
+    Player player;
+    
+    std::vector<Entity> entities;
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
@@ -22,14 +26,16 @@ int main(void)
         //----------------------------------------------------------------------------------
         // TODO: Update your variables here
         //----------------------------------------------------------------------------------
-
+        player.move();
+        player.update();
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
             ClearBackground(BLUE);
             DrawRectangle(0, 225, 800, 225, BROWN);
-            ent.draw();
+            player.draw();
+            DrawFPS(700,0);
             
         EndDrawing();
         //----------------------------------------------------------------------------------
@@ -42,3 +48,15 @@ int main(void)
 
     return 0;
 }
+
+//TODO
+/*
+-game object
+-scene object
+-better movement(physics?)
+-attacks
+
+---After sprites are made---
+-animation
+-background movement
+*/
