@@ -1,6 +1,8 @@
+#ifndef ENTITY_GUARD_H
+#define ENTITY_GUARD_H
+
 #include "raylib.h"
 #include "raymath.h"
-
 
 class Entity {
     private:
@@ -10,6 +12,7 @@ class Entity {
         Entity();
         Vector2 pos;
         Vector2 vel;
+        int index = 0;
         void draw();
         void update();
 };
@@ -27,3 +30,5 @@ void Entity::update(){
     pos = Vector2Add(pos, vel);
     vel = {0,0};
 }
+
+#endif
